@@ -101,11 +101,6 @@ func main() {
 		logger.Fatal("Error getting server version:", zap.Error(err))
 	}
 
-	isWatcher := GetConfigBool("WATCHER", false, *logger)
-	if isWatcher {
-		// Start watcher for persistent volumes
-		watcher.WatchPersistentVolumes(clientset, *logger)
-	} else {
-		logger.Fatal("Please set 'WATCHER' to true for starting wacther.")
-	}
+	// Start watcher for persistent volumes
+	watcher.WatchPersistentVolumes(clientset, *logger)
 }
