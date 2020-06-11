@@ -40,13 +40,11 @@ kubectl logs -n kube-system <watcher_pod_name>
 **Sample watcher logs:**
 ```
 $ kubectl logs -n kube-system ibmcloud-object-storage-plugin-pv-watcher-559c55b48d-ndg84
-{"level":"info","ts":"2020-06-11T15:44:23.529Z","caller":"watcher/main.go:42","msg":"Failed to set flag:","error":"no such flag -logtostderr"}
-W0611 15:44:23.530021       1 client_config.go:549] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
-{"level":"info","ts":"2020-06-11T15:44:23.531Z","caller":"config/config.go:103","msg":"Entry SetUpEvn"}
-{"level":"info","ts":"2020-06-11T15:44:23.567Z","caller":"config/config.go:111","msg":"Exit SetUpEvn"}
-{"level":"info","ts":"2020-06-11T15:44:23.570Z","caller":"watcher/watcher.go:114","msg":"WatchPersistentVolume"}
-{"level":"info","ts":"2020-06-11T15:44:25.554Z","caller":"watcher/set_firewall_rules.go:41","msg":"UpdateFirewallRules","response":{"StatusCode":200,"Headers":{"Date":["Thu, 11 Jun 2020 15:44:24 GMT"],"Etag":["fb18ea33-946d-4821-9ebe-5457edfd6d5f"],"Ibm-Cos-Config-Api-Ver":["1.0"],"Ibm-Cos-Request-Id":["96fd24e6-21c5-47fc-94ca-bab46ba35ac1"]},"Result":null,"RawResult":null}}
-{"level":"info","ts":"2020-06-11T15:44:25.555Z","caller":"watcher/watcher.go:150","msg":"Firewall rules for persistent volume updated successfully"}
-{"level":"info","ts":"2020-06-11T15:44:25.576Z","caller":"watcher/watcher.go:158","msg":"Annotations updated successfully","for PV":"pvc-2a83ab2b-0ace-4270-b533-007a1460bfe9"}
+{"level":"info","ts":"2020-06-11T18:40:14.152Z","caller":"watcher/main.go:79","msg":"Failed to set flag:","error":"no such flag -logtostderr"}
+W0611 18:40:14.152669       1 client_config.go:549] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+{"level":"info","ts":"2020-06-11T18:40:14.197Z","caller":"watcher/watcher.go:117","msg":"WatchPersistentVolume"}
+{"level":"info","ts":"2020-06-11T18:49:33.392Z","caller":"watcher/set_firewall_rules.go:41","msg":"UpdateFirewallRules","response":{"StatusCode":200,"Headers":{"Date":["Thu, 11 Jun 2020 18:49:32 GMT"],"Etag":["3dcaaf7e-fd1c-4112-8ecf-40c8d5ada6c2"],"Ibm-Cos-Config-Api-Ver":["1.0"],"Ibm-Cos-Request-Id":["75631e49-cc6e-4f31-8e96-5754a6cba4f5"]},"Result":null,"RawResult":null}}
+{"level":"info","ts":"2020-06-11T18:49:33.392Z","caller":"watcher/watcher.go:152","msg":"Firewall rules for persistent volume updated successfully"}
+{"level":"info","ts":"2020-06-11T18:49:33.404Z","caller":"watcher/watcher.go:160","msg":"Annotations updated successfully","for PV":"pvc-4e98c16a-f474-437e-b225-d48de0521972"}
 ```
 
