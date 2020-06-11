@@ -1,0 +1,17 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: s3fs-test-pvc
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "ibmc-s3fs-standard-regional"
+    ibm.io/auto-create-bucket: "true"
+    ibm.io/auto-delete-bucket: "false"
+    ibm.io/bucket: "mybucket"
+    ibm.io/object-path: ""    # Bucket's sub-directory to be mounted (OPTIONAL)
+    ibm.io/secret-name: "test-secret"
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi # fictitious value

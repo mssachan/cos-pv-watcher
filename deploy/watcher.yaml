@@ -1,0 +1,41 @@
+#ibmcloud-object-storage-plugin-pv-watcher deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ibmcloud-object-storage-plugin-pv-watcher
+  namespace: kube-system
+  labels:
+    app: ibmcloud-object-storage-plugin-watcher
+spec:
+  strategy:
+    type: RollingUpdate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ibmcloud-object-storage-plugin-watcher
+  template:
+    metadata:
+      labels:
+        app: ibmcloud-object-storage-plugin-watcher
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: beta.kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+      tolerations:
+      - operator: "Exists"
+      serviceAccountName: ibmcloud-object-storage-plugin-watcher
+      containers:
+        - name: pv-watcher-container
+          image: mayanksachan/ibmcloud-object-storage-plugin-pv-watcher:v4
+          imagePullPolicy: Always
+          env:
+          - name: DEBUG_TRACE
+            value: 'false'
+          - name: WATCHER
+            value: 'true'
