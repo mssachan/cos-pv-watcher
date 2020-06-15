@@ -37,6 +37,18 @@ kubectl get pods -n kube-system | grep ibmcloud-object-storage-plugin-pv-watcher
 kubectl logs -n kube-system <watcher_pod_name>
 ```
 
+**5. Create Secret**
+```
+vi deploy/sample-usage/secret.yaml
+kubectl apply -f deploy/sample-usage/secret.yaml
+```
+
+**6. Create PVC**
+```
+vi deploy/sample-usage/pvc.yaml
+kubectl apply -f deploy/sample-usage/pvc.yaml
+```
+
 **Sample watcher logs:**
 ```
 $ kubectl logs -n kube-system ibmcloud-object-storage-plugin-pv-watcher-559c55b48d-ndg84
