@@ -4,6 +4,7 @@
 **Note:** Set GOPATH properly.
 ```
 mkdir -p $GOPATH/src/github.com/IBM/
+cd $GOPATH/src/github.com/IBM/
 git clone https://github.com/mssachan/cos-pv-watcher.git
 cd cos-pv-watcher
 go mod vendor
